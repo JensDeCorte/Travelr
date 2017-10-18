@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use JWTAuth;
-use App\Http\Controllers\Controller;
 use App\Trip;
 use Dingo\Api\Routing\Helpers;
 

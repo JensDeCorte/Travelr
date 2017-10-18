@@ -1,7 +1,7 @@
 <?php
 
 use Dingo\Api\Routing\Router;
-
+use app\Api\V1\Controllers;
 /** @var Router $api */
 $api = app(Router::class);
 
@@ -12,7 +12,20 @@ $api->version('v1', function (Router $api) {
 
         $api->post('recovery', 'App\\Api\\V1\\Controllers\\ForgotPasswordController@sendResetEmail');
         $api->post('reset', 'App\\Api\\V1\\Controllers\\ResetPasswordController@resetPassword');
+    }
+    );
+
+
+    $api->group(['middleware' => 'api.auth'], function ($api) 
+    {
+        $api->get('trip', 'TripController@index');
+        $api->get('trip/{id}', 'app\Api\V1\Controllers\TripController@show');
+        $api->post('trip', 'App\Api\V1\Controllers\TripController@store');
+        $api->put('trip/{id}', 'App\Api\V1\Controllers\TripController@update');
+        $api->delete('trip/{id}', 'App\Api\V1\Controllers\TripController@destroy');
     });
+
+
 
     $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
         $api->get('protected', function() {
