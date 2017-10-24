@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Api\V1\Controllers;
 
 use Illuminate\Http\Request;
 use JWTAuth;
+use App\Http\Controllers\Controller;
 use App\Location;
 use Dingo\Api\Routing\Helpers;
 

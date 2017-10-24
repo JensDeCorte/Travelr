@@ -17,7 +17,7 @@ class LoginController extends Controller
 
         try {
             $token = $JWTAuth->attempt($credentials);
-
+                
             if(!$token) {
                 throw new AccessDeniedHttpException();
             }

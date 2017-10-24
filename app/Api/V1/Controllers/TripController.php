@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Api\V1\Controllers;
 
 use Illuminate\Http\Request;
 use JWTAuth;
@@ -49,7 +49,7 @@ class TripController extends Controller
 	    $currentUser = JWTAuth::parseToken()->authenticate();
 	
 	    $trip = $currentUser->trip()->find($id);
-	dd($trip);
+
 	    if(!$trip)
 	        throw new NotFoundHttpException; 
 	

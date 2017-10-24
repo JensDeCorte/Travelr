@@ -16,15 +16,46 @@ $api->version('v1', function (Router $api) {
     );
 
 
+        $api->get('trip', 'App\\Api\\V1\\Controllers\\TripController@index');
+        $api->get('trip/{id}', 'App\\Api\\V1\\Controllers\\TripController@show');
+        $api->post('trip', 'App\\Api\\V1\\Controllers\\TripController@store');
+        $api->put('trip/{id}', 'App\\Api\\V1\\Controllers\\TripController@update');
+        $api->delete('trip/{id}', 'App\\Api\\V1\\Controllers\\TripController@destroy');
+
+        $api->get('stop', 'App\\Api\\V1\\Controllers\\StopController@index');
+        $api->get('stop/{id}', 'App\\Api\\V1\\Controllers\\StopController@show');
+        $api->post('stop', 'App\\Api\\V1\\Controllers\\StopController@store');
+        $api->put('stop/{id}', 'App\\Api\\V1\\Controllers\\StopController@update');
+        $api->delete('stop/{id}', 'App\\Api\\V1\\Controllers\\StopController@destroy');
+
+        $api->get('media', 'App\\Api\\V1\\Controllers\\MediaController@index');
+        $api->get('media/{id}', 'App\\Api\\V1\\Controllers\\MediaController@show');
+        $api->post('media', 'App\\Api\\V1\\Controllers\\MediaController@store');
+        $api->put('media/{id}', 'App\\Api\\V1\\Controllers\\MediaController@update');
+        $api->delete('media/{id}', 'App\\Api\\V1\\Controllers\\MediaController@destroy');
+
+        $api->get('location', 'App\\Api\\V1\\Controllers\\LocationController@index');
+        $api->get('location/{id}', 'App\\Api\\V1\\Controllers\\LocationController@show');
+        $api->post('location', 'App\\Api\\V1\\Controllers\\LocationController@store');
+        $api->put('location/{id}', 'App\\Api\\V1\\Controllers\\LocationController@update');
+        $api->delete('location/{id}', 'App\\Api\\V1\\Controllers\\LocationController@destroy');
+
+        $api->get('follower', 'App\\Api\\V1\\Controllers\\FollowerController@index');
+        $api->get('follower/{id}', 'App\\Api\\V1\\Controllers\\FollowerController@show');
+        $api->post('follower', 'App\\Api\\V1\\Controllers\\FollowerController@store');
+        $api->put('follower/{id}', 'App\\Api\\V1\\Controllers\\FollowerController@update');
+        $api->delete('follower/{id}', 'App\\Api\\V1\\Controllers\\FollowerController@destroy');
+
+/*
     $api->group(['middleware' => 'api.auth'], function ($api) 
     {
-        $api->get('trip', 'TripController@index');
-        $api->get('trip/{id}', 'app\Api\V1\Controllers\TripController@show');
-        $api->post('trip', 'App\Api\V1\Controllers\TripController@store');
-        $api->put('trip/{id}', 'App\Api\V1\Controllers\TripController@update');
-        $api->delete('trip/{id}', 'App\Api\V1\Controllers\TripController@destroy');
-    });
 
+        
+        $api->post('trip', 'App\\Api\\V1\\Controllers\\TripController@store');
+        $api->put('trip/{id}', 'App\\Api\\V1\\Controllers\\TripController@update');
+        $api->delete('trip/{id}', 'App\\Api\\V1\\Controllers\\TripController@destroy');
+    });
+*/
 
 
     $api->group(['middleware' => 'jwt.auth'], function(Router $api) {
